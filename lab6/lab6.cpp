@@ -49,7 +49,7 @@ void print_matrix(int my_matrix[ARRAY_SIZE][ARRAY_SIZE], int N)
     for (int i = 0; i < N; i++)
     {
         for (int j = 0; j < N; j++)
-            std::cout << my_matrix[i][j];
+            std::cout << my_matrix[i][j] << '\t';
         std::cout << std::endl;
     }
 }
@@ -59,7 +59,10 @@ void matrix_sum(int a[ARRAY_SIZE][ARRAY_SIZE], int b[ARRAY_SIZE][ARRAY_SIZE], in
     int c[ARRAY_SIZE][ARRAY_SIZE];
     for (int i = 0; i < N; i++)
         for (int j = 0; j < N; j++)
+        {
+            c[i][j] = 0;
             c[i][j] = a[i][j] + b[i][j];
+        }
     print_matrix(c, N);
 }
 
@@ -67,12 +70,14 @@ void matrix_product(int a[ARRAY_SIZE][ARRAY_SIZE], int b[ARRAY_SIZE][ARRAY_SIZE]
 {
     int c[ARRAY_SIZE][ARRAY_SIZE];
     for (int i = 0; i < N; i++)
+    {
         for (int j = 0; j < N; j++)
         {
             c[i][j] = 0;
             for (int k = 0; k < N; k++)
                 c[i][j] += a[i][k] * b[k][j];
         }
+    }
     print_matrix(c, N);
 }
 
@@ -81,7 +86,10 @@ void matrix_difference(int a[ARRAY_SIZE][ARRAY_SIZE], int b[ARRAY_SIZE][ARRAY_SI
     int c[ARRAY_SIZE][ARRAY_SIZE];
     for (int i = 0; i < N; i++)
         for (int j = 0; j < N; j++)
+        {
+            c[i][j] = 0;
             c[i][j] = a[i][j] - b[i][j];
+        }
     print_matrix(c, N);
 }
 
