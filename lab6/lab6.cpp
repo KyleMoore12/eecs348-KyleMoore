@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <string>
 
 const int ARRAY_SIZE = 100;
 int get_input(char file_name[], int a[ARRAY_SIZE][ARRAY_SIZE], int b[ARRAY_SIZE][ARRAY_SIZE], int &N)
@@ -14,6 +15,8 @@ int get_input(char file_name[], int a[ARRAY_SIZE][ARRAY_SIZE], int b[ARRAY_SIZE]
     my_file.read(data, len);
     my_file.close();
     data[len] = '\n';
+    char separator = ' ';
+    std::string temp;
     int k = 1;
     N = data[0] - '0';
     for (int i = 0; i < N; i++)
@@ -24,7 +27,13 @@ int get_input(char file_name[], int a[ARRAY_SIZE][ARRAY_SIZE], int b[ARRAY_SIZE]
             {
                 k++;
             }
-            a[i][j] = data[k] - '0';
+            while (data[k] != ' ' && data[k] != '\n')
+            {
+                temp += data[k];
+                k++;
+            }
+            a[i][j] = stoi(temp);
+            temp.clear();
             k++;
         }
     }
@@ -36,7 +45,12 @@ int get_input(char file_name[], int a[ARRAY_SIZE][ARRAY_SIZE], int b[ARRAY_SIZE]
             {
                 k++;
             }
-            b[i][j] = data[k] - '0';
+            while (data[k] != ' ' && data[k] != '\n')
+            {
+                temp += data[k++];
+            }
+            b[i][j] = stoi(temp);
+            temp.clear();
             k++;
         }
     }
