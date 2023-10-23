@@ -15,7 +15,6 @@ int get_input(char file_name[], int a[ARRAY_SIZE][ARRAY_SIZE], int b[ARRAY_SIZE]
     my_file.read(data, len);
     my_file.close();
     data[len] = '\n';
-    char separator = ' ';
     std::string temp;
     int k = 1;
     N = data[0] - '0';
