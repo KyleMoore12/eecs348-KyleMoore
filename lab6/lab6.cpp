@@ -2,7 +2,7 @@
 #include <fstream>
 
 const int ARRAY_SIZE = 100;
-int get_input(char file_name[])
+int get_input(char file_name[], int a[ARRAY_SIZE][ARRAY_SIZE], int b[ARRAY_SIZE][ARRAY_SIZE], int &N)
 {
     std::ifstream my_file(file_name, std::ifstream::in);
     if (!my_file)
@@ -14,9 +14,8 @@ int get_input(char file_name[])
     my_file.read(data, len);
     my_file.close();
     data[len] = '\n';
-    int a[100][100], b[100][100], N, k;
+    int k = 1;
     N = data[0] - '0';
-    k = 1;
     for (int i = 0; i < N; i++)
     {
         for (int j = 0; j < N; j++)
@@ -97,10 +96,12 @@ int main()
 {
     std::cout << "Kyle Moore\nLab #6: Matrix manipulation\n";
     char file_name[50] = "matrix_input.txt";
-    // int my_array = get_input(file_name);
-    int N = 3;
-    int a[ARRAY_SIZE][ARRAY_SIZE] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    int b[ARRAY_SIZE][ARRAY_SIZE] = {{2, 3, 4}, {5, 6, 7}, {8, 9, 10}};
+    int N;
+    int a[ARRAY_SIZE][ARRAY_SIZE];
+    int b[ARRAY_SIZE][ARRAY_SIZE];
+    get_input(file_name, a, b, N);
+    // int a[ARRAY_SIZE][ARRAY_SIZE] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    // int b[ARRAY_SIZE][ARRAY_SIZE] = {{2, 3, 4}, {5, 6, 7}, {8, 9, 10}};
     std::cout << "Matrix A:\n";
     print_matrix(a, N);
     std::cout << "Matrix B:\n";
