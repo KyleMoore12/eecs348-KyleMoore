@@ -114,8 +114,6 @@ int main()
     int a[ARRAY_SIZE][ARRAY_SIZE];
     int b[ARRAY_SIZE][ARRAY_SIZE];
     get_input(file_name, a, b, N);
-    // int a[ARRAY_SIZE][ARRAY_SIZE] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    // int b[ARRAY_SIZE][ARRAY_SIZE] = {{2, 3, 4}, {5, 6, 7}, {8, 9, 10}};
     std::cout << "Matrix A:\n";
     print_matrix(a, N);
     std::cout << "Matrix B:\n";
