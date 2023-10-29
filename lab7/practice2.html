@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Color and Border Control</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        
+        #container {
+            width: 80%;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        #my-paragraph {
+            padding: 20px;
+            border: 2px solid black;
+            transition: background-color 0.5s, border-width 0.5s, border-color 0.5s;
+        }
+        
+        #color-input {
+            width: 150px;
+        }
+        
+        #border-color-input {
+            width: 150px;
+        }
+        
+        #width-input {
+            width: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <h1>EECS 348 Lab 7 Practice 2</h1>
+        <p id="my-paragraph">
+            random text random text random text random text random text random text random text random text random text random text
+        </p>
+        <label for="color-input">Background Color (RGB):</label>
+        <input type="text" id="color-input" placeholder="e.g., 255, 0, 0"><br><br>
+        <label for="border-color-input">Border Color (RGB):</label>
+        <input type="text" id="border-color-input" placeholder="e.g., 0, 0, 255"><br><br>
+        <label for="width-input">Border Width (px):</label>
+        <input type="number" id="width-input" value="2"><br><br>
+        <button id="update-button">Update</button>
+    </div>
+    <script>
+        document.getElementById('update-button').addEventListener('click', function() {
+            var bgColorInput = document.getElementById('color-input').value;
+            var borderColorInput = document.getElementById('border-color-input').value;
+            var widthInput = document.getElementById('width-input').value;
+            var paragraph = document.getElementById('my-paragraph');
+
+            var bgColors = bgColorInput.split(',').map(function(color) {
+                return parseInt(color);
+            });
+
+            var borderColors = borderColorInput.split(',').map(function(color) {
+                return parseInt(color);
+            });
+
+            if (bgColors.length === 3) {
+                paragraph.style.backgroundColor = 'rgb(' + bgColors[0] + ',' + bgColors[1] + ',' + bgColors[2] + ')';
+            }
+
+            if (borderColors.length === 3) {
+                paragraph.style.borderColor = 'rgb(' + borderColors[0] + ',' + borderColors[1] + ',' + borderColors[2] + ')';
+            }
+
+            if (!isNaN(widthInput)) {
+                paragraph.style.borderWidth = widthInput + 'px';
+            }
+        });
+    </script>
+    <a href="index.html">Click to go back</a>
+
+</body>
+
+</html>

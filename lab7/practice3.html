@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Password Verification</title>
+</head>
+
+<body>
+    <h1>EECS 348 Lab 7 Practice 3</h1>
+    <script>
+        // Function to verify passwords
+        function validate() {
+            var password1 = document.getElementById('password1').value;
+            var password2 = document.getElementById('password2').value;
+
+            if (password1.length < 8 || password1 !== password2) {
+                alert("Passwords do not match or are less than eight characters long.");
+            } else {
+                alert("Passwords matched!");
+            }
+        }
+    </script>
+    <label for="password1">Enter Password:</label>
+    <input type="password" id="password1" placeholder="Enter your password"><br><br>
+    <label for="password2">Confirm Password:</label>
+    <input type="password" id="password2" placeholder="Confirm your password"><br><br>
+    <button onclick="validate()">Verify</button><br><br>
+    <a href="index.html">Click to go back</a>
+</body>
+
+</html>
